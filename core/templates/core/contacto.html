@@ -1,0 +1,23 @@
+
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}Contacto | {{ persona.nombres }} {{ persona.apellidos }}{% endblock %}
+
+{% block header_image %}{% static 'core/img/contact-bg.jpg' %}{% endblock %}
+{% block header_title %}Contacto{% endblock %}
+{% block header_subtitle %}Asesoría{% endblock %}
+
+{% block content %}
+   <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>{{ persona.dedicacion }}</p>
+          <br>
+          <p><b>Teléfono:</b> {{ persona.telefono }}</p>
+          <p><b>Dirección:</b> {{ persona.direccion }}</p>
+        </div>
+      </div>
+    </div>
+    <hr>
+{% endblock %}

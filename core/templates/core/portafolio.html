@@ -1,0 +1,30 @@
+
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}Portafolio | {{ persona.nombres }} {{ persona.apellidos }}{% endblock %}
+{% block header_image %}{% static 'core/img/portfolio-bg.jpg' %}{% endblock %}
+{% block header_title %}Portafolio{% endblock %}
+{% block header_subtitle %}Currículo{% endblock %}
+
+{% block content %}
+        <div class="container">
+          {% for proyecto in proyectos %}
+          <div class="row project">
+              <div class="col-lg-3 col-md-4 offset-lg-1">
+                  {% if proyecto.imagem %}
+                  <img class="img-fluid" src="{{ proyecto.imagem.url }}" alt="{{ proyecto.titulo }}">
+                  {% endif %}
+              </div>
+            <div class="col-lg-7 col-md-8">
+                  <h2 class="section-heading title">{{ proyecto.titulo }}</h2>
+              <p>{{ proyecto.descripcion }}</p>
+              {% if proyecto.link %}
+              <p><a href="{{ proyecto.link }}" target="_blank">Más información</a></p>
+              {% endif %}
+              </div>
+          </div>
+          {% endfor %}
+          </div>
+<hr>
+{% endblock %}
